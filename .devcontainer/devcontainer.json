@@ -29,49 +29,5 @@
                     "ms-python.vscode-pylance"
             ]
         }
-    },
-
-    // ... (rest of the devcontainer.json content remains the same)
+    }
 }
-
-
-
-// {
-//     "name": "Python 3.11",
-//     "image": "mcr.microsoft.com/devcontainers/python:0-3.11",
-//     "features": {
-//         "ghcr.io/devcontainers/features/node:1": {},
-//         "ghcr.io/devcontainers-contrib/features/terraform:1": {}
-//     },
-
-//     // Use 'forwardPorts' to make any exposed ports available locally.
-//     "forwardPorts": [8000],
-
-//     // Use 'postCreateCommand' to run commands after the container is created.
-//     "postCreateCommand": "pip3 install --upgrade pip && pip3 install -r requirements.txt",
-
-//     // Configure tool-specific properties.
-//     "customizations": {
-//         // Configure properties specific to VS Code.
-//         "vscode": {
-//             // Set *default* container specific settings.json values on container create.
-//             "settings": {
-//                 "python.defaultInterpreterPath": "/usr/local/bin/python",
-//                 "python.linting.enabled": true,
-//                 "python.linting.pylintEnabled": true,
-//                 "python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
-//                 "python.formatting.blackPath": "/usr/local/py-utils/bin/black",
-//                 "python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
-//                 "python.linting.pylintPath": "/usr/local/py-utils/bin/pylint",
-//                 "python.linting.flake8Path": "/usr/local/py-utils/bin/flake8"
-//             },
-//              "extensions": [
-//                 "ms-python.python",
-//                 "ms-python.vscode-pylance"
-//             ]
-//         }
-//     },
-
-//     // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-//     "remoteUser": "vscode"
-// }
