@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 
 from domain.entities import Item
 from usecase.use_cases import CreateItemUseCase
@@ -8,13 +8,18 @@ from schemas import ItemCreate
 
 router = APIRouter()
 
+
+class ItemController:
+    def __init__(self, create_item_use_case: CreateItemUseCase):
+        self.create_item_use_case = create_item_use_case
+
+    @router.post("/items/", response_model=ItemCreate)
+    def create_item(self, item: ItemCreate) -> ItemCreate:
+        created_item = self.create_item_use_case.execute(item.name, item.description)
+        return ItemCreate(name=created_item.name, description=created_item.description)
+
+
 item_repository = ItemRepository()
 item_interactor = ItemInteractor(item_repository)
 create_item_use_case = CreateItemUseCase(item_interactor)
-
-
-
-@router.post("/items/", response_model=ItemCreate)
-def create_item(item: ItemCreate) -> ItemCreate:
-    created_item = create_item_use_case.execute(item.name, item.description)
-    return ItemCreate(name=created_item.name, description=created_item.description)
+item_controller = ItemController(create_item_use_case)
