@@ -14,8 +14,8 @@ class ItemController:
         self.create_item_use_case = create_item_use_case
 
     @router.post("/items/", response_model=ItemCreate)
-    def create_item(self, item: ItemCreate) -> ItemCreate:
-        created_item = self.create_item_use_case.execute(item.name, item.description)
+    async def create_item(item: ItemCreate):  # Remove query parameter designation
+        created_item = create_item_use_case.execute(item.name, item.description)
         return ItemCreate(name=created_item.name, description=created_item.description)
 
 
